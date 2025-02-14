@@ -13,8 +13,9 @@ func _ready():
 	exit_button.button_down.connect(on_exit_pressed)
 	
 func on_start_button_down() -> void:
-	print("start button pressed")
-	pass
+	print("new game started")
+	get_tree().change_scene_to_file("res://Scenes/Game_Settings.tscn")
+	
 	
 func on_options_pressed() -> void:
 	print("options button pressed")
