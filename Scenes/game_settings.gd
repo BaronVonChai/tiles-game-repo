@@ -1,11 +1,16 @@
 extends Control
 
+const PlayerOptions = preload("res://Scripts/PlayerOptions.gd") 
 
-# Called when the node enters the scene tree for the first time.
+@onready var bottom_hbox = $BottomContainer/MarginContainer/HBoxContainer
+@onready var add_player_button = $TopContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/AddPlayerButton as Button
+
 func _ready() -> void:
-	pass # Replace with function body.
+	add_player_button.button_down.connect(_on_add_player_button)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _on_add_player_button() -> void:
+	var new_player = PlayerOptions.new()
+	new_player.create_player_container(bottom_hbox.get_child_count() + 1, bottom_hbox)
