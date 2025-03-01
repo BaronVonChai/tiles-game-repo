@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://c7u64tpv6byvb"]
+[gd_scene load_steps=25 format=3 uid="uid://c7u64tpv6byvb"]
 
+[ext_resource type="Script" path="res://demo_terrain/flat_terrain_scene.gd" id="1_0okx8"]
 [ext_resource type="Shader" path="res://demo_terrain/shaders/wireframe.gdshader" id="1_pum5v"]
 [ext_resource type="Texture2D" uid="uid://cdx7ceoux78g0" path="res://demo_terrain/textures/yellow_grass.png" id="2_diq8e"]
 [ext_resource type="FastNoiseLite" uid="uid://cfqdbsjbv1tr3" path="res://demo_terrain/resources/hex_terrain_biomes_noise.tres" id="2_w71nt"]
@@ -61,6 +62,7 @@ divisions = 2
 material = SubResource("ShaderMaterial_ineyc")
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_0okx8")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.27592, 9.88109, 6.05755)

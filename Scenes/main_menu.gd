@@ -14,7 +14,7 @@ func _ready():
 	
 func on_start_button_down() -> void:
 	print("new game started")
-	get_tree().change_scene_to_file("res://Scenes/Game_Settings.tscn")
+	get_tree().change_scene_to_file("res://Scenes/game_settings.tscn")
 	
 	
 func on_options_pressed() -> void:

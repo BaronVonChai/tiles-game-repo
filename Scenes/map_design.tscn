@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfvuvabelyew7"]
+
+[ext_resource type="Script" path="res://Scenes/map_design.gd" id="1_6to01"]
+[ext_resource type="Script" path="res://Scenes/camera_3d.gd" id="2_73dly"]
+
+[node name="MapDesign" type="Node3D"]
+script = ExtResource("1_6to01")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 20, 20)
+script = ExtResource("2_73dly")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 2
+offset_left = 560.0
+offset_top = 620.0
+offset_right = 568.0
+offset_bottom = 648.0
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
