@@ -30,3 +30,4 @@ func print_methods_of_object(obj):
 	var methods = obj.get_method_list()
 	for i in range(methods.size()):
 		print("  - Method: ", methods[i]["name"])
+		
