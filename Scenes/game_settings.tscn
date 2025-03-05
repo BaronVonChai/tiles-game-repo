@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://xp0r3j4kshqg"]
 
-[ext_resource type="Script" path="res://Scenes/game_settings.gd" id="1_tlv5f"]
+[ext_resource type="Script" uid="uid://bwrw1s8mlom8c" path="res://Scripts/game_settings.gd" id="1_tlv5f"]
 [ext_resource type="Theme" uid="uid://b4n4l6mr23frp" path="res://Assets/Themes/GreenButton.tres" id="2_xpbu0"]
 
 [sub_resource type="Theme" id="Theme_neysn"]

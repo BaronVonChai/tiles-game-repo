@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://c7u64tpv6byvb"]
 
-[ext_resource type="Script" path="res://demo_terrain/flat_terrain_scene.gd" id="1_0okx8"]
-[ext_resource type="Shader" path="res://demo_terrain/shaders/wireframe.gdshader" id="1_pum5v"]
+[ext_resource type="Script" uid="uid://cqehjvtpio0f3" path="res://demo_terrain/flat_terrain_scene.gd" id="1_0okx8"]
+[ext_resource type="Shader" uid="uid://dcksb0wdsm5qc" path="res://demo_terrain/shaders/wireframe.gdshader" id="1_pum5v"]
 [ext_resource type="Texture2D" uid="uid://cdx7ceoux78g0" path="res://demo_terrain/textures/yellow_grass.png" id="2_diq8e"]
 [ext_resource type="FastNoiseLite" uid="uid://cfqdbsjbv1tr3" path="res://demo_terrain/resources/hex_terrain_biomes_noise.tres" id="2_w71nt"]
 [ext_resource type="Texture2D" uid="uid://480r6dmk61dl" path="res://demo_terrain/textures/grass0.png" id="3_dt225"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://do00yjl6ipe16" path="res://demo_terrain/textures/water.png" id="4_0msuc"]
 [ext_resource type="FastNoiseLite" uid="uid://c4332g4a8o75g" path="res://demo_terrain/resources/hex_terrain_mountain_noise.tres" id="4_8apfb"]
 [ext_resource type="Texture2D" uid="uid://ba6285rpeyj4l" path="res://demo_terrain/textures/snow.png" id="5_l3sdd"]
-[ext_resource type="Shader" path="res://demo_terrain/shaders/terrain.gdshader" id="6_8c8ug"]
+[ext_resource type="Shader" uid="uid://brknbvdxo2bcf" path="res://demo_terrain/shaders/terrain.gdshader" id="6_8c8ug"]
 [ext_resource type="FastNoiseLite" uid="uid://cgxvojmlhcxha" path="res://demo_terrain/resources/rect_terrain_biomes_noise.tres" id="7_pdqbd"]
 [ext_resource type="FastNoiseLite" uid="uid://b0o4avj71sfcj" path="res://demo_terrain/resources/rect_terrain_plain_noise.tres" id="8_tlppm"]
 [ext_resource type="FastNoiseLite" uid="uid://beit0r3ccwphn" path="res://demo_terrain/resources/rect_terrain_mountain_noise.tres" id="9_6vlvq"]

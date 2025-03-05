@@ -11,15 +11,6 @@ var contoller_label : Label
 var team_value : Label
 var player_label : Label
 
-
-'func _init():
-	min_value = 0
-	max_value = len(team_options) - 1 # Adjust this since array is 0-based
-	step = 1
-	tick_count = len(team_options)
-	ticks_on_borders = true
-	theme_type_variation = "TeamSelectSlider" 
-'
 func create_player_container(player_number: int, parent_node: Node) -> void:
 	# Ensure we don't reuse containers
 	if container != null:
