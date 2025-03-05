@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfvuvabelyew7"]
 
-[ext_resource type="Script" path="res://Scripts/map_design.gd" id="1_6to01"]
-[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="2_73dly"]
+[ext_resource type="Script" uid="uid://b38d3yehu631l" path="res://Scripts/map_design.gd" id="1_6to01"]
+[ext_resource type="Script" uid="uid://bgepne265x178" path="res://Scripts/camera_3d.gd" id="2_73dly"]
 
 [node name="MapDesign" type="Node3D"]
 script = ExtResource("1_6to01")

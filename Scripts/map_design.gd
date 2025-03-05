@@ -124,7 +124,87 @@ func _on_reset_button_pressed():
 
 func _on_generate_rest_button_pressed():
 	print("Generating the rest of the tiles")
-	# Here you would add code to automatically place remaining tiles
+	
+	# Calculate how many tiles are left to place
+	var tiles_remaining = total_tiles - placed_tiles_count
+	
+	if tiles_remaining <= 0:
+		print("No tiles left to generate")
+		return
+	
+	# Count existing water tiles
+	var water_count = 0
+	for tile in placed_tiles:
+		# This assumes we can tell the tile type from its color or some property
+		# You might need to adjust this based on how you're tracking tile types
+		if tile.material_override and tile.material_override.albedo_color.is_equal_approx(Color(0.0, 0.3, 0.8)):
+			water_count += 1
+	
+	# Calculate maximum allowed water tiles (1/3 of total)
+	var max_water_tiles = int(total_tiles / 3)
+	var remaining_water_allowed = max_water_tiles - water_count
+	
+	# Define terrain types for randomization
+	var terrain_types = [
+		TileFactory.TERRAIN_FLAT,
+		TileFactory.TERRAIN_HILLY,
+		TileFactory.TERRAIN_MOUNTAINOUS
+	]
+	print("Generating %s tiles" % tiles_remaining)
+
+	# Place tiles until we run out of tiles
+	while placed_tiles_count < total_tiles:
+		# Get a fresh list of all available outline positions
+		var available_positions = []
+		for outline in outline_manager.outline_hexagons:
+			available_positions.append(outline.position)
+		
+		# If no positions left, break the loop
+		if available_positions.size() == 0:
+			break
+			
+		# Shuffle the positions for randomness
+		available_positions.shuffle()
+		
+		# Decide if we can place water
+		var random_type
+		if water_count < max_water_tiles and randf() < 0.3:  # 30% chance for water if allowed
+			random_type = TileFactory.TERRAIN_WATER
+			water_count += 1
+		else:
+			# Pick a random non-water terrain type
+			random_type = terrain_types[randi() % terrain_types.size()]
+		
+		# Use the first available position after shuffling
+		var position = available_positions[0]
+		
+		# Create a permanent tile at this location
+		var permanent_tile = tile_factory.create_terrain_tile(random_type)
+		permanent_tile.position = position
+		add_child(permanent_tile)
+		placed_tiles.append(permanent_tile)
+		
+		# Find and remove this outline
+		var outline_to_remove = null
+		for outline in outline_manager.outline_hexagons:
+			if outline.position.distance_to(position) < 0.1:
+				outline_to_remove = outline
+				break
+				
+		if outline_to_remove:
+			outline_manager.remove_outline(outline_to_remove)
+		
+		# Create new outline hexagons around this tile
+		outline_manager.generate_surrounding_outlines(permanent_tile.position, placed_tiles)
+		
+		# Update placed tiles counter
+		placed_tiles_count += 1
+		update_tiles_left_display()
+		
+		# Short delay to make the generation visible
+		await get_tree().create_timer(0.05).timeout
+	
+		
 	
 # Tile Type Selection
 func select_tile_type(type: String):
