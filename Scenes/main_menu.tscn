@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://43p25ls3nq7i"]
 
-[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_2p0q5"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_2p0q5"]
 [ext_resource type="Texture2D" uid="uid://cie51uom56m7y" path="res://Assets/Images/95506165_1668885449941511_5071834769977769984_n.jpg" id="1_dfg76"]
 [ext_resource type="FontFile" uid="uid://b8vrjxdfonfou" path="res://Assets/Fonts/Chicago.ttf" id="2_6yvg4"]
 

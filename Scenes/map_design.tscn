@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfvuvabelyew7"]
 
-[ext_resource type="Script" path="res://Scenes/map_design.gd" id="1_6to01"]
-[ext_resource type="Script" path="res://Scenes/camera_3d.gd" id="2_73dly"]
+[ext_resource type="Script" path="res://Scripts/map_design.gd" id="1_6to01"]
+[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="2_73dly"]
 
 [node name="MapDesign" type="Node3D"]
 script = ExtResource("1_6to01")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 20, 20)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 2, 3)
 script = ExtResource("2_73dly")
 
 [node name="Control" type="Control" parent="."]
@@ -18,23 +18,96 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
-layout_mode = 2
-offset_left = 560.0
-offset_top = 620.0
-offset_right = 568.0
-offset_bottom = 648.0
-theme_override_constants/margin_bottom = 20
+[node name="UI" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
-custom_minimum_size = Vector2(0, 20)
+[node name="TileTypePanel" type="PanelContainer" parent="Control/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -190.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/UI/TileTypePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/UI/TileTypePanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tile Type"
+horizontal_alignment = 1
+
+[node name="FlatButton" type="Button" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Flat"
+
+[node name="HillyButton" type="Button" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Hilly"
+
+[node name="MountainButton" type="Button" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Mountainous"
+
+[node name="WaterButton" type="Button" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Water"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TilesLeftContainer" type="VBoxContainer" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Control/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer/VBoxContainer2/TilesLeftContainer"]
 layout_mode = 2
+text = "Tiles Left"
+horizontal_alignment = 1
 
-[node name="Button2" type="Button" parent="Control/MarginContainer/HBoxContainer"]
+[node name="TilesLeftLabel" type="Label" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer/VBoxContainer2/TilesLeftContainer"]
 layout_mode = 2
+text = "0 / 0"
+horizontal_alignment = 1
 
-[node name="Button3" type="Button" parent="Control/MarginContainer/HBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="UndoButton" type="Button" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Undo Last Tile"
+
+[node name="ResetButton" type="Button" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Reset Board"
+
+[node name="GenerateRestButton" type="Button" parent="Control/UI/TileTypePanel/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Generate Rest of Tiles"
